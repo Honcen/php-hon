@@ -34,7 +34,7 @@ if (! function_exists('isJson')) {
     * @return bool
     * @author Hon <chenhong@fangstar.net>
     */
-    public function isJson($param)
+    function isJson($param)
     {
         json_decode($param);
         if (json_last_error()) {
@@ -57,7 +57,7 @@ if (! function_exists('matchKeyInArray')) {
      * @author  Qvil<yangqingwu@fangstar.net>
      * @return  String:如果hayStack中所有key，在needle中也存在，那么返回空字符串，否则返回在needle中第一个没有匹配到的key字符串
      */
-    public function matchKeyInArray($needle,$hayStack)
+    function matchKeyInArray($needle,$hayStack)
     {
         foreach($hayStack as $key){
             if(null === array_get($needle,$key))return strval($key);
@@ -74,7 +74,7 @@ if (! function_exists('floor_float')) {
      * @return float
      * @author Hon <chenhong@fangstar.net>
      */
-    public function floor_float($val,$precision=0)
+    function floor_float($val,$precision=0)
     {
         $location = strpos($val,".");
         if($location){
@@ -95,7 +95,7 @@ if (! function_exists('checkDecimal')) {
      * @param $min
      * @return bool
      */
-    public function checkDecimal($number,$max,$min)
+    function checkDecimal($number,$max,$min)
     {
         $number = floatval($number);
         if($number > $max || $number < $min)
@@ -111,7 +111,7 @@ if (! function_exists('arrayStripTags')) {
      * @author Hon <chenhong@fangstar.net>
      * @datetime 2016-04-12 15:20
      */
-    public function arrayStripTags($array)
+    function arrayStripTags($array)
     {
         $result = array();
 
@@ -139,7 +139,7 @@ if (! function_exists('shiftHtmlTags')) {
      * @author Hon <chenhong@fangstar.net>
      * @datetime 2016-04-12 15:22
      */
-    public function shiftHtmlTags($array)
+    function shiftHtmlTags($array)
     {
         if(is_array($array)){
             $result = array();
