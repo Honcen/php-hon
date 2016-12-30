@@ -29,11 +29,11 @@ if (! function_exists('str_replace_once')) {
 if (! function_exists('isJson')) {
 
     /**
-    * 验证输入的字符串是否符合json标准
-    * @param $param
-    * @return bool
-    * @author Hon <chenhong@fangstar.net>
-    */
+     * 验证输入的字符串是否符合json标准
+     * @param $param
+     * @return bool
+     * @author Hon <chenhong@fangstar.net>
+     */
     function isJson($param)
     {
         json_decode($param);
@@ -48,23 +48,6 @@ if (! function_exists('isJson')) {
     }
 }
 
-
-if (! function_exists('matchKeyInArray')) {
-    /**
-     * 匹配两个数组中的key
-     * @param   array   $needle     必传数组
-     * @param   array   $hayStack   被比较的数组
-     * @author  Qvil<yangqingwu@fangstar.net>
-     * @return  String:如果hayStack中所有key，在needle中也存在，那么返回空字符串，否则返回在needle中第一个没有匹配到的key字符串
-     */
-    function matchKeyInArray($needle,$hayStack)
-    {
-        foreach($hayStack as $key){
-            if(null === array_get($needle,$key))return strval($key);
-        }
-        return "";
-    }
-}
 
 if (! function_exists('floor_float')) {
     /**
@@ -161,5 +144,37 @@ if (! function_exists('shiftHtmlTags')) {
         }else{
             return htmlspecialchars(htmlspecialchars_decode($array));
         }
+    }
+}
+
+if(! function_exists('get_client_ip')){
+
+    /**
+     * 获取客户端ip地址
+     * @return string
+     */
+    function get_client_ip()
+    {
+        if ($_SERVER['REMOTE_ADDR']) {
+            $cip = $_SERVER['REMOTE_ADDR'];
+        } elseif (getenv("REMOTE_ADDR")) {
+            $cip = getenv("REMOTE_ADDR");
+        } elseif (getenv("HTTP_CLIENT_IP")) {
+            $cip = getenv("HTTP_CLIENT_IP");
+        } else {
+            $cip = "unknown";
+        }
+        return $cip;
+    }
+}
+
+if(! function_exists('get_server_ip')){
+    /**
+     * 获取服务器端ip地址
+     * @return string
+     */
+    function get_server_ip()
+    {
+        return  gethostbyname($_SERVER["SERVER_NAME"]);
     }
 }
