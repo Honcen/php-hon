@@ -14,7 +14,17 @@
   },
   "autoload":
   {
-    "psr-0":
+    "psr-4":
+    {
+      "Hon\\":"src/"
+    },
+    "files":[
+          "CommonFn.php"
+        ]
+  },
+  "autoload-dev":
+  {
+    "psr-4":
     {
       "Hon\\":"src/"
     },
